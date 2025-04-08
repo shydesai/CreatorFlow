@@ -410,10 +410,3 @@ if (section) {
   section.scrollIntoView({ behavior: 'smooth' });
 }
 }
-function togglePricing() {
-  const isAnnual = document.getElementById("billingToggle").checked;
-  document.getElementById("proPrice").innerHTML = isAnnual ? "$3<span>/mo</span>" : "$9.99<span>/mo</span>";
-  document.getElementById("ultimatePrice").innerHTML = isAnnual ? "$9<span>/mo</span>" : "$19.99<span>/mo</span>";
-  document.getElementById("proAnnualTotal").style.display = isAnnual ? "block" : "none";
-  document.getElementById("ultimateAnnualTotal").style.display = isAnnual ? "block" : "none";
-}
