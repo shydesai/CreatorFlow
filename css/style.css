@@ -380,3 +380,20 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(24px);
 }
+/* Set section background to dark in dark mode */
+body.dark section {
+  background: #1f2937; /* Tailwind's gray-800 for nice dark contrast */
+  color: #f3f4f6; /* Tailwind's gray-100 for text */
+}
+
+/* Optional: dark mode nav background */
+body.dark nav {
+  background: #111827; /* even darker nav */
+}
+
+/* Style pricing cards in dark mode */
+body.dark .pricing-card {
+  background: #374151; /* Tailwind's gray-700 */
+  color: #f3f4f6;
+  border-color: #4b5563; /* Tailwind's gray-600 */
+}
