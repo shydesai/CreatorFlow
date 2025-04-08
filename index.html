@@ -41,13 +41,56 @@
         </section>
       
       <section id="pricing">
-    <h2>Pricing Plans</h2>
-    <ul>
-      <li><strong>Free:</strong> 5 uploads, basic chart, tax summary</li>
-      <li><strong>Pro ($9.99/mo):</strong> Unlimited uploads, reminders, breakdowns</li>
-      <li><strong>Ultimate ($19.99/mo):</strong> All Pro features + tax export + W9 matching</li>
-    </ul>
-  </section>    
+  <h2 style="text-align: center; margin-bottom: 20px;">Pricing Plans</h2>
+
+  <!-- Toggle Switch -->
+  <div style="text-align: center; margin-bottom: 30px;">
+    <label style="font-weight: 600; margin-right: 10px;">Monthly</label>
+    <label class="switch">
+      <input type="checkbox" id="billingToggle" onchange="togglePricing()">
+      <span class="slider"></span>
+    </label>
+    <label style="font-weight: 600; margin-left: 10px;">Annual</label>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <h3>Free</h3>
+      <p class="price">$0<span>/mo</span></p>
+      <ul>
+        <li>✔ 5 uploads</li>
+        <li>✔ Basic income chart</li>
+        <li>✔ Tax summary</li>
+      </ul>
+      <button>Get Started</button>
+    </div>
+
+    <div class="pricing-card highlight">
+      <div class="badge">Most Popular</div>
+      <h3>Pro</h3>
+      <p class="price" id="proPrice">$9.99<span>/mo</span></p>
+      <p class="annual-total" id="proAnnualTotal" style="display:none;">$36 billed yearly</p>
+      <ul>
+        <li>✔ Unlimited uploads</li>
+        <li>✔ Monthly breakdowns</li>
+        <li>✔ Auto reminders</li>
+      </ul>
+      <button>Upgrade to Pro</button>
+    </div>
+
+    <div class="pricing-card">
+      <h3>Ultimate</h3>
+      <p class="price" id="ultimatePrice">$19.99<span>/mo</span></p>
+      <p class="annual-total" id="ultimateAnnualTotal" style="display:none;">$108 billed yearly</p>
+      <ul>
+        <li>✔ All Pro features</li>
+        <li>✔ Export taxes & reports</li>
+        <li>✔ W9 matching</li>
+      </ul>
+      <button>Go Ultimate</button>
+    </div>
+  </div>
+</section>    
         <section id="dashboard">
           <h2>Dashboard</h2>
           <div>
