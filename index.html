@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CreatorFlow | One-Page Income Tracker for UGC Creators</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+        <header>
+          <h1>CreatorFlow</h1>
+          <p>Track. Visualize. File. Your UGC Income, Simplified.</p>
+        </header>
+      
+        <nav>
+          <button class="toggle-dark" onclick="toggleDarkMode()">
+            <i class="fas fa-moon"></i>
+          </button>        
+          <a onclick="scrollToSection('about')">Home</a>
+          <a onclick="scrollToSection('features')">Features</a>
+          <a onclick="scrollToSection('pricing')">Pricing</a>
+          <a onclick="scrollToSection('dashboard')">Dashboard</a>
+        </nav>
+      
+        <section id="about">
+          <h2>What is CreatorFlow?</h2>
+          <p>CreatorFlow is your financial co-pilot. We help UGC creators track income, organize brand invoices, and prepare for tax season with simple visual tools. Know what you earned. Upload proof. Match it to your W9s. Done.</p>
+        </section>
+      
+        <section id="features">
+          <h2>Features</h2>
+          <ul>
+            <li>📊 Real-time income & expense chart by month</li>
+            <li>📥 Upload & track invoices by brand</li>
+            <li>🧾 1099 Tax Estimator with savings from deductions</li>
+            <li>📅 Monthly breakdowns and expense insights</li>
+            <li>📂 Compare earnings to W9s</li>
+          </ul>
+        </section>
+      
+        <section id="pricing">
+          <h2>Pricing Plans</h2>
+          <ul>
+            <li><strong>Free:</strong> 5 uploads, basic chart, tax summary</li>
+            <li><strong>Pro ($9.99/mo):</strong> Unlimited uploads, reminders, breakdowns</li>
+            <li><strong>Ultimate ($19.99/mo):</strong> All Pro features + tax export + W9 matching</li>
+          </ul>
+        </section>
+      
+        <section id="dashboard">
+          <h2>Dashboard</h2>
+          <div>
+            <h3>📆 Monthly Overview</h3>
+            <div id="monthlyOverview"></div>
+          </div>
+          <canvas id="incomeChart" height="100"></canvas>
+        <!-- 🆕 Monthly breakdown appears below chart -->
+          <div id="selectedMonthDetails" style="margin-top: 20px; font-weight: bold;"></div>
+          <div id="selectedMonthBreakdown" style="margin-bottom: 30px;"></div>
+      
+          <div class="form-section-wrapper">
+            <div class="income-form">
+              <h3>📈 Add New Income</h3>
+              <label for="fullDate">Date</label>
+              <input type="date" id="fullDate" required />
+              <label for="brand">Brand/Client Name</label>
+              <input type="text" id="brand" placeholder="Brand/Client Name" required />
+              <label for="amount">Amount Earned</label>
+              <input type="number" id="amount" placeholder="Amount Earned ($)" required />
+              <label for="invoice">Upload Invoice</label>
+              <input type="file" id="invoice" />
+              <button onclick="addIncome()">Add Income</button>
+            </div>
+          
+            <div class="expense-form">
+              <h3>📉 Expense Tracker & Deductions</h3>
+              <label for="expenseDate">Date</label>
+              <input type="date" id="expenseDate" required />
+              <label for="expenseCategory">Category</label>
+              <select id="expenseCategory">
+                <option value="Equipment">Equipment (e.g., camera, mic)</option>
+                <option value="Software">Software/Subscriptions</option>
+                <option value="HomeOffice">Home Office</option>
+                <option value="Travel">Travel/Meals</option>
+                <option value="Marketing">Marketing/Ads</option>
+                <option value="Other">Other</option>
+              </select>
+              <label for="expenseAmount">Expense Amount</label>
+              <input type="number" id="expenseAmount" placeholder="Amount ($)" />
+              <label for="expenseReceipt">Upload Receipt</label>
+              <input type="file" id="expenseReceipt" />
+              <button onclick="addExpense()">Add Expense</button>
+            </div>
+          </div>
+          <h3>🧾 Tax Estimator</h3>
+          <div class="tax-estimator-row">
+            <div class="tax-card">
+              <div class="tax-title">Quarterly Payment Due</div>
+              <div class="tax-value">$<span id="quarterlyEstimate">0.00</span> (Q<span id="currentQuarter">1</span>)</div>
+            </div>
+            <div class="tax-card">
+              <div class="tax-title">Total Estimated Tax</div>
+              <div class="tax-value">$<span id="taxEstimate">0.00</span></div>
+            </div>
+            <div class="tax-card">
+              <div class="tax-title">Adjusted Annual Tax Estimate</div>
+              <div class="tax-value">$<span id="adjustedTaxEstimate">0.00</span></div>
+            </div>
+            <div class="tax-card">
+              <div class="tax-title">Total Deductions</div>
+              <div class="tax-value">$<span id="totalDeductions">0.00</span></div>
+            </div>
+            <div class="tax-card">
+              <div class="tax-title">Tax Savings</div>
+              <div class="tax-value">$<span id="taxSavings">0.00</span></div>
+            </div>
+          </div>      
+      
+          <div>
+            <h3>📊 Deduction Breakdown</h3>
+            <div id="deductionBreakdown"></div>
+          </div>
+        </section>
+</body>
+</html>
